@@ -14,17 +14,16 @@ end
 doctor = Doctor.create!(
   first_name: Faker::Superhero.prefix,
   last_name: Faker::Games::Pokemon.name,
-  specialty_id: City.all.sample.id,
   zip_code: Faker::Address.zip_code,
   city_id: City.all.sample.id
   )
 end
 
-Specialty.create!(specialty: "Généraliste", doctor_id: Doctor.all.sample.id)
-Specialty.create!(specialty: "Dermato", doctor_id: Doctor.all.sample.id)
-Specialty.create!(specialty: "Urologue", doctor_id: Doctor.all.sample.id)
-Specialty.create!(specialty: "ORL", doctor_id: Doctor.all.sample.id)
-Specialty.create!(specialty: "Marabout", doctor_id: Doctor.all.sample.id)
+Specialty.create!(specialty: "Généraliste")
+Specialty.create!(specialty: "Dermato")
+Specialty.create!(specialty: "Urologue")
+Specialty.create!(specialty: "ORL")
+Specialty.create!(specialty: "Marabout")
 
 20.times do
 patient = Patient.create!(
@@ -43,4 +42,8 @@ appointment = Appointment.create!(
   date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
   city_id: City.all.sample.id
   )
+end
+
+20.times do
+  join = JoinTableDoctorSpecialty.create!(doctor: Doctor.all.select(:id).sample, specialty: Specialty.all.select(:id).sample)
 end

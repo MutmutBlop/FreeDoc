@@ -36,10 +36,8 @@ ActiveRecord::Schema.define(version: 2019_04_25_160428) do
     t.string "zip_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "specialty_id"
     t.integer "city_id"
     t.index ["city_id"], name: "index_doctors_on_city_id"
-    t.index ["specialty_id"], name: "index_doctors_on_specialty_id"
   end
 
   create_table "join_table_doctor_specialties", force: :cascade do |t|
@@ -62,10 +60,8 @@ ActiveRecord::Schema.define(version: 2019_04_25_160428) do
 
   create_table "specialties", force: :cascade do |t|
     t.string "specialty"
-    t.integer "doctor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["doctor_id"], name: "index_specialties_on_doctor_id"
   end
 
 end
