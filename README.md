@@ -5,7 +5,13 @@
 #### Mathilde Briend
 
 Apprendre Rails et la gestion des BDD via une app de prise de RDV médicaux
-> Gestion des models
-> Gestion des migrations
+* Gestion des models
+* Gestion des migrations
 
+Pour tester la BDD :
+* Cloner le repo
+* `bundle install`
+* `rails db:seed`
+* `rails c`
+* Faire les tests nécessaires (`tp Doctor.all`, `tp Patient.all`, `tp JoinTableDoctorSpecialty.all`...)
 
